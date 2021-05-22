@@ -301,10 +301,10 @@ namespace Midterm_CalculatorProject
             // 
             // output
             // 
-            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.output.Location = new System.Drawing.Point(12, 46);
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(398, 62);
+            this.output.Size = new System.Drawing.Size(398, 49);
             this.output.TabIndex = 19;
             this.output.Text = "0";
             this.output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

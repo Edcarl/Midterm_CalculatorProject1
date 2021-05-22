@@ -13,8 +13,8 @@ namespace Midterm_CalculatorProject
     public partial class Calculator : Form
     {
 
-        Double value = 0;
-        String text = "";
+        float value = 0;
+        string text = "";
         bool operation = false;
 
         public Calculator()
@@ -43,29 +43,26 @@ namespace Midterm_CalculatorProject
         {
             Button button = (Button)sender;
             text = button.Text;
-            value = Double.Parse(output.Text);
+            value = float.Parse(output.Text);
             operation = true;
         }
 
         private void op_result(object sender, EventArgs e)
         {
-            switch (text)
+            if(text == "+")
             {
-                case "+":
-                    output.Text = (value + Double.Parse(output.Text)).ToString();
-                    break;
-                case "-":
-                    output.Text = (value - Double.Parse(output.Text)).ToString();
-                    break;
-                case "*":
-                    output.Text = (value * Double.Parse(output.Text)).ToString();
-                    break;
-                case "/":
-                    output.Text = (value / Double.Parse(output.Text)).ToString();
-                    break;
-                default:
-                    break;
+                output.Text = (value + Double.Parse(output.Text)).ToString();
+            } else if(text == "-")
+            {
+                output.Text = (value - Double.Parse(output.Text)).ToString();
+            } else if(text == "*")
+            {
+                output.Text = (value * Double.Parse(output.Text)).ToString();
+            } else if(text == "/")
+            {
+                output.Text = (value / Double.Parse(output.Text)).ToString();
             }
+
             operation = false;
         }
 
