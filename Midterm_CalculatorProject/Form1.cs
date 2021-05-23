@@ -44,6 +44,7 @@ namespace Midterm_CalculatorProject
             Button button = (Button)sender;
             text = button.Text;
             value = float.Parse(output.Text);
+            output.Clear();
             operation = true;
         }
 
@@ -51,16 +52,16 @@ namespace Midterm_CalculatorProject
         {
             if(text == "+")
             {
-                output.Text = (value + Double.Parse(output.Text)).ToString();
+                output.Text = (value + float.Parse(output.Text)).ToString();
             } else if(text == "-")
             {
-                output.Text = (value - Double.Parse(output.Text)).ToString();
+                output.Text = (value - float.Parse(output.Text)).ToString();
             } else if(text == "*")
             {
-                output.Text = (value * Double.Parse(output.Text)).ToString();
+                output.Text = (value * float.Parse(output.Text)).ToString();
             } else if(text == "/")
             {
-                output.Text = (value / Double.Parse(output.Text)).ToString();
+                output.Text = (value / float.Parse(output.Text)).ToString();
             }
 
             operation = false;
