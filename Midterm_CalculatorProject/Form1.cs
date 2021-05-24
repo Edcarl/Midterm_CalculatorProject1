@@ -15,7 +15,6 @@ namespace Midterm_CalculatorProject
 
         float value = 0;
         string text = "";
-        bool operation = false;
 
         public Calculator()
         {
@@ -24,14 +23,12 @@ namespace Midterm_CalculatorProject
 
         private void button_click(object sender, EventArgs e)
         {
-            if((output.Text == "0")||(operation))
-            {
-                output.Clear();
-            }
-
             Button button = (Button)sender;
+            if (output.Text == "0")
+            {
+                output.Text = "";
+            }
             output.Text = output.Text + button.Text;
-            operation = false;
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -45,7 +42,7 @@ namespace Midterm_CalculatorProject
             text = button.Text;
             value = float.Parse(output.Text);
             output.Clear();
-            operation = true;
+            
         }
 
         private void op_result(object sender, EventArgs e)
@@ -53,18 +50,20 @@ namespace Midterm_CalculatorProject
             if(text == "+")
             {
                 output.Text = (value + float.Parse(output.Text)).ToString();
-            } else if(text == "-")
+            } 
+            else if(text == "-")
             {
                 output.Text = (value - float.Parse(output.Text)).ToString();
-            } else if(text == "*")
+            } 
+            else if(text == "*")
             {
                 output.Text = (value * float.Parse(output.Text)).ToString();
-            } else if(text == "/")
+            } 
+            else if(text == "/")
             {
                 output.Text = (value / float.Parse(output.Text)).ToString();
             }
 
-            operation = false;
         }
 
         private void button16_Click(object sender, EventArgs e)
