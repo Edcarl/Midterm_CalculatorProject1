@@ -62,6 +62,7 @@ namespace Midterm_CalculatorProject
             this.btnsqrt = new System.Windows.Forms.Button();
             this.btnMadd = new System.Windows.Forms.Button();
             this.btnMC = new System.Windows.Forms.Button();
+            this.lblOutput = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -313,10 +314,10 @@ namespace Midterm_CalculatorProject
             // 
             // output
             // 
-            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.output.Location = new System.Drawing.Point(12, 46);
+            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.Location = new System.Drawing.Point(9, 60);
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(398, 49);
+            this.output.Size = new System.Drawing.Size(398, 35);
             this.output.TabIndex = 19;
             this.output.Text = "0";
             this.output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -324,11 +325,11 @@ namespace Midterm_CalculatorProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(105, 4);
+            this.label2.Location = new System.Drawing.Point(135, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 39);
+            this.label2.Size = new System.Drawing.Size(152, 29);
             this.label2.TabIndex = 20;
             this.label2.Text = "STANDARD";
             // 
@@ -470,10 +471,21 @@ namespace Midterm_CalculatorProject
             this.btnMC.Text = "MC";
             this.btnMC.UseVisualStyleBackColor = false;
             // 
+            // lblOutput
+            // 
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutput.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblOutput.Location = new System.Drawing.Point(7, 32);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(0, 25);
+            this.lblOutput.TabIndex = 32;
+            // 
             // Calculator
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(419, 471);
+            this.Controls.Add(this.lblOutput);
             this.Controls.Add(this.btnMsubtract);
             this.Controls.Add(this.btnMS);
             this.Controls.Add(this.btnCE);
@@ -570,6 +582,7 @@ namespace Midterm_CalculatorProject
         private System.Windows.Forms.Button btnsqrt;
         private System.Windows.Forms.Button btnMadd;
         private System.Windows.Forms.Button btnMC;
+        private System.Windows.Forms.Label lblOutput;
     }
 }
 

@@ -46,11 +46,18 @@ namespace Midterm_CalculatorProject
         private void opr_press(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            text = button.Text;
-            value = float.Parse(output.Text);
-            output.Clear();
+            if (value != 0)
+            {
+                Operation();
+                text = button.Text;
 
-
+            }
+            
+                text = button.Text;
+                value = float.Parse(output.Text);
+                lblOutput.Text = value + " " + text;
+                output.Clear();
+            
         }
 
         private void op_result(object sender, EventArgs e)
@@ -78,22 +85,41 @@ namespace Midterm_CalculatorProject
 
         private void Operation()
         {
-                if (text == "+")
-                {
+            switch (text)
+            {
+                case "+":
                     output.Text = (value + float.Parse(output.Text)).ToString();
-                }
-                else if (text == "-")
-                {
-                output.Text = (value - float.Parse(output.Text)).ToString();
-                }
-                else if (text == "*")
-                {
-                output.Text = (value * float.Parse(output.Text)).ToString();
-                }
-                else if (text == "/")
-                {
-                output.Text = (value / float.Parse(output.Text)).ToString();
-                }
+                    break;
+                case "-":
+                    output.Text = (value - float.Parse(output.Text)).ToString();
+                    break;
+                case "*":
+                    output.Text = (value * float.Parse(output.Text)).ToString();
+                    break;
+                case "/":
+                    output.Text = (value / float.Parse(output.Text)).ToString();
+                    break;
+                default:
+                    break;
+            }
+                //if (text == "+")
+                //{
+                //    output.Text = (value + float.Parse(output.Text)).ToString();
+                //}
+                //else if (text == "-")
+                //{
+                //output.Text = (value - float.Parse(output.Text)).ToString();
+                //}
+                //else if (text == "*")
+                //{
+                //output.Text = (value * float.Parse(output.Text)).ToString();
+                //}
+                //else if (text == "/")
+                //{
+                //output.Text = (value / float.Parse(output.Text)).ToString();
+                //}
+            value = float.Parse(output.Text);
+            lblOutput.Text = " ";
         }
 
         private void btnsqrt_Click(object sender, EventArgs e)
@@ -118,6 +144,7 @@ namespace Midterm_CalculatorProject
 
         private void btnCE_Click(object sender, EventArgs e)
         {
+            value = 0;
             output.Text = "0";
         }
     }
