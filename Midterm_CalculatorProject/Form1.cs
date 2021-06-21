@@ -28,7 +28,7 @@ namespace Midterm_CalculatorProject
             {
                 output.Text = "";
             }
-            //output.Text = output.Text + button.Text;
+            
             if (button.Text == ".")
             {
                 if (!output.Text.Contains("."))
