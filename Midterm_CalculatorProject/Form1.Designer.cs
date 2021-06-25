@@ -357,6 +357,7 @@ namespace Midterm_CalculatorProject
             this.btnMsubtract.TabIndex = 31;
             this.btnMsubtract.Text = "M-";
             this.btnMsubtract.UseVisualStyleBackColor = false;
+            this.btnMsubtract.Click += new System.EventHandler(this.BtnMsubtract_Click);
             // 
             // btnMS
             // 
@@ -369,6 +370,7 @@ namespace Midterm_CalculatorProject
             this.btnMS.TabIndex = 30;
             this.btnMS.Text = "MS";
             this.btnMS.UseVisualStyleBackColor = false;
+            this.btnMS.Click += new System.EventHandler(this.BtnMS_Click);
             // 
             // btnCE
             // 
@@ -433,6 +435,7 @@ namespace Midterm_CalculatorProject
             this.btnMR.TabIndex = 25;
             this.btnMR.Text = "MR";
             this.btnMR.UseVisualStyleBackColor = false;
+            this.btnMR.Click += new System.EventHandler(this.BtnMR_Click);
             // 
             // btnsqrt
             // 
@@ -458,6 +461,7 @@ namespace Midterm_CalculatorProject
             this.btnMadd.TabIndex = 23;
             this.btnMadd.Text = "M+";
             this.btnMadd.UseVisualStyleBackColor = false;
+            this.btnMadd.Click += new System.EventHandler(this.BtnMadd_Click);
             // 
             // btnMC
             // 
@@ -470,6 +474,7 @@ namespace Midterm_CalculatorProject
             this.btnMC.TabIndex = 22;
             this.btnMC.Text = "MC";
             this.btnMC.UseVisualStyleBackColor = false;
+            this.btnMC.Click += new System.EventHandler(this.BtnMC_Click);
             // 
             // lblOutput
             // 
