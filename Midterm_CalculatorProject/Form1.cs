@@ -16,7 +16,7 @@ namespace Midterm_CalculatorProject
         float value = 0;
         string text = "";
         float memory = 0;
-        bool operand = false;
+        bool operation = false;
 
         public Calculator()
         {
@@ -26,18 +26,22 @@ namespace Midterm_CalculatorProject
         private void button_click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (output.Text == "0")
-            {
-                output.Text = "";
-            }
             
             if (button.Text == ".")
             {
                 if (!output.Text.Contains("."))
                     output.Text = output.Text + button.Text;
+                if (output.Text == "0")
+                    output.Text = output.Text + button.Text;
+            } else if ((output.Text == "0") || (operation))
+            {
+                output.Clear();
+                output.Text = output.Text + button.Text;
             }
+            
             else
                 output.Text = output.Text + button.Text;
+            operation = false;
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -55,16 +59,19 @@ namespace Midterm_CalculatorProject
                 Operation();
                 text = button.Text;
             }
+
+            text = button.Text;
+            value = float.Parse(output.Text);
+            output.Text = "";
+            lblOutput.Text = value + " " + text;
+            operation = true;
             
-                text = button.Text;
-                value = float.Parse(output.Text);
-                lblOutput.Text = value + " " + text;
-                output.Clear();
         }
 
         private void op_result(object sender, EventArgs e)
         {
             Operation();
+            value = 0;
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -159,6 +166,11 @@ namespace Midterm_CalculatorProject
         {
             memory = 0;
             output.Text = "0";
+        }
+
+        private void Calculator_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
