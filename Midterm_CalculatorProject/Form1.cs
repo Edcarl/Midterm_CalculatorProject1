@@ -12,12 +12,7 @@ namespace Midterm_CalculatorProject
 {
     public partial class Calculator : Form
     {
-
-        float value = 0;
-        string text = "";
-        float memory = 0;
-        bool operation = false;
-
+        myCalc calc = new myCalc();
         public Calculator()
         {
             InitializeComponent();
@@ -26,14 +21,14 @@ namespace Midterm_CalculatorProject
         private void button_click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            
+
             if (button.Text == ".")
             {
                 if (!output.Text.Contains("."))
                     output.Text = output.Text + button.Text;
                 if (output.Text == "0")
                     output.Text = output.Text + button.Text;
-            } else if ((output.Text == "0") || (operation))
+            } else if ((output.Text == "0") || (calc.operation))
             {
                 output.Clear();
                 output.Text = output.Text + button.Text;
@@ -41,12 +36,12 @@ namespace Midterm_CalculatorProject
             
             else
                 output.Text = output.Text + button.Text;
-            operation = false;
+            calc.operation = false;
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            value = 0;
+            calc.value = 0;
             output.Text = "0";
             lblOutput.Text = "";
         }
@@ -54,24 +49,31 @@ namespace Midterm_CalculatorProject
         private void opr_press(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (value != 0)
+            if (calc.value != 0)
             {
-                Operation();
-                text = button.Text;
+                calc.value2 = output.Text;
+                calc.Operation();
+                output.Text = calc.value2;
+                calc.text = button.Text;
             }
 
-            text = button.Text;
-            value = float.Parse(output.Text);
+            calc.text = button.Text;
+            calc.value = float.Parse(output.Text);
             output.Text = "";
-            lblOutput.Text = value + " " + text;
-            operation = true;
+            lblOutput.Text = calc.value + " " + calc.text;
+            calc.operation = true;
             
         }
+        
 
         private void op_result(object sender, EventArgs e)
         {
-            Operation();
-            value = 0;
+            calc.value2 = output.Text;
+            calc.newlblOutput = lblOutput.Text;
+            calc.Operation();
+            output.Text = calc.value2;
+            lblOutput.Text = calc.newlblOutput;
+            calc.value = 0;
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -92,30 +94,7 @@ namespace Midterm_CalculatorProject
             output.Text = (float.Parse(output.Text) * -1).ToString();
         }
 
-        private void Operation()
-        {
-            switch (text)
-            {
-                case "+":
-                    output.Text = (value + float.Parse(output.Text)).ToString();
-                    break;
-                case "-":
-                    output.Text = (value - float.Parse(output.Text)).ToString();
-                    break;
-                case "*":
-                    output.Text = (value * float.Parse(output.Text)).ToString();
-                    break;
-                case "/":
-                    output.Text = (value / float.Parse(output.Text)).ToString();
-                    break;
-                default:
-                    break;
-            }
-                
-            value = float.Parse(output.Text);
-            lblOutput.Text = " ";
-        }
-
+        
         private void btnsqrt_Click(object sender, EventArgs e)
         {
             output.Text = Math.Sqrt(float.Parse(output.Text)).ToString();
@@ -143,34 +122,31 @@ namespace Midterm_CalculatorProject
 
         private void BtnMS_Click(object sender, EventArgs e)
         {
-            memory = float.Parse(output.Text);
+            calc.memory = float.Parse(output.Text);
             output.Text = "0";
         }
 
         private void BtnMR_Click(object sender, EventArgs e)
         {
-            output.Text = memory.ToString();
+            output.Text = calc.memory.ToString();
         }
 
         private void BtnMadd_Click(object sender, EventArgs e)
         {
-            memory = memory + float.Parse(output.Text);
+            calc.memory = calc.memory + float.Parse(output.Text);
+            output.Text = "0";
         }
 
         private void BtnMsubtract_Click(object sender, EventArgs e)
         {
-            memory = memory - float.Parse(output.Text);
+            calc.memory = calc.memory - float.Parse(output.Text);
+            output.Text = "0";
         }
 
         private void BtnMC_Click(object sender, EventArgs e)
         {
-            memory = 0;
+            calc.memory = 0;
             output.Text = "0";
-        }
-
-        private void Calculator_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
